@@ -1728,6 +1728,68 @@
           }
         },
         {
+          "-rdf:about": "E59_Primitive_Value",
+          "rdfs:label": [
+            {
+              "-xml:lang": "en",
+              "#text": "Primitive Value"
+            }
+          ],
+          "rdfs:comment": "This class comprises values of primitive data types of programming languages or database management systems and data types composed of such values used as documentation elements, as well as their mathematical abstractions. The instances of E59 Primitive Value and its subclasses are not considered elements of the universe of discourse the CIDOC CRM aims to define and analyse. Rather, they play the role of a symbolic interface between the scope of the model and the world of mathematical and computational manipulations and the symbolic objects they define and handle. In particular, they comprise lexical forms encoded as strings or series of characters and symbols based on encoding schemes (characterised by being a limited subset of the respective mathematical abstractions) such as UNICODE and values of datatypes that can be encoded in a lexical form, including quantitative specifications of time-spans and geometry. They have in common that instances of E59 Primitive Value define themselves by virtue of their encoded value, regardless of the nature of their mathematical abstractions. Therefore, in an implementation, instances of E59 Primitive should be represented directly in the encoded symbolic form supported by the respective platform, such as a character string or a formatted date. They must not be represented in an implementation indirectly via, another a universal resource identifier, which in turn is linked to the actual encoded symbolic form. In a concrete application, it is recommended that the primitive value system from a chosen implementation platform and/or data definition language be used to substitute for this class and its subclasses.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "E60_Number",
+          "rdfs:label": [
+            {
+              "-xml:lang": "en",
+              "#text": "Number"
+            }
+          ],
+          "rdfs:comment": "This class comprises any encoding of computable (algebraic) values such as integers, real numbers, complex numbers, vectors, tensors etc., including intervals of these values to express limited precision. Numbers are fundamentally distinct from numerically expressed identifiers in continua, which are instances of E41 Appellation, such as Gregorian dates or spatial coordinates, even though their encoding may be similar. Instances of E60 Number can be combined with each other in algebraic operations to yield other instances of E60 Number, e.g., 1+1=2. Identifiers in continua may be combined with numbers expressing distances to yield new identifiers, e.g., 1924-01-31 + 2 days = 1924-02-02. Cf. E54 Dimension.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E59_Primitive_Value",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "E61_Time_Primitive",
+          "rdfs:label": [
+            {
+              "-xml:lang": "en",
+              "#text": "Time Primitive"
+            }
+          ],
+          "rdfs:comment": "This class comprises any encoding of computable (algebraic) values such as integers, real numbers, complex numbers, vectors, tensors etc., including intervals of these values to express limited precision. Numbers are fundamentally distinct from numerically expressed identifiers in continua, which are instances of E41 Appellation, such as Gregorian dates or spatial coordinates, even though their encoding may be similar. Instances of E60 Number can be combined with each other in algebraic operations to yield other instances of E60 Number, e.g., 1+1=2. Identifiers in continua may be combined with numbers expressing distances to yield new identifiers, e.g., 1924-01-31 + 2 days = 1924-02-02. Cf. E54 Dimension.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "E41_Appellation",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "E59_Primitive_Value",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "E62_String",
+          "rdfs:label": [
+            {
+              "-xml:lang": "en",
+              "#text": "Number"
+            }
+          ],
+          "rdfs:comment": "This class comprises coherent sequences of binary-encoded symbols. They correspond to the content of an instance of E90 Symbolic object. Instances of E62 String represent only the symbol sequence itself. They may or may not contain a language code. In contrast, instances of other subclasses of E59 Primitive value represent entities in mathematical spaces other than that of symbol sequences, by using binary-encoded symbols, such as date expressions or numbers in decimal encoding. For instance, different syntactic forms of a date expression may represent the same date but consist of different strings.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E59_Primitive_Value",
+            "-self-closing": "true"
+          }
+        },
+        {
           "-rdf:about": "E63_Beginning_of_Existence",
           "rdfs:label": [
             {
@@ -2570,6 +2632,688 @@
             "-rdf:resource": "E55_Type",
             "-self-closing": "true"
           }
+        },
+        {
+          "-rdf:about": "S1_Matter_Removal",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Matter Removal"
+          },
+          "rdfs:comment": "This class comprises the activities that result in an instance of S10 Material Substantial being decreased by the removal of an amount of matter. Typical scenarios include the removal of a component or piece of a physical object, removal of an archaeological or geological layer, taking a tissue sample from a body or a sample of fluid from a body of water. The removed matter may acquire a persistent identity of different nature beyond the act of its removal, such as becoming a physical object in the narrower sense. Such cases should be modeled by using multiple instantiation with adequate concepts of creating the respective items.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S2_Sample_Taking",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Sample Taking"
+          },
+          "rdfs:comment": "This class comprises the activity that results in taking an amount of matter as sample for further analysis from a material substantial such as a body of water, a geological formation or an archaeological object. The removed matter may acquire a persistent identity of different nature beyond the act of its removal, such as becoming a physical object in the narrower sense. The sample is typically removed from a physical feature which is used as a frame of reference, the place of sampling. In case of non-rigid Material Substantials, the source of sampling may regarded not to be modified by the activity of sample taking.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S3_Measurement_by_Sampling",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Measurement by Sampling"
+          },
+          "rdfs:comment": "This class comprises activities of taking a sample and measuring or analyzing it as one unit of activity, in which the sample is typically not identified and preserved beyond the context of this activity. Instances of this class describe the taking of one or more samples regardless whether they are explicitly identified in documentation or preserved beyond this activity. The dimensions observed by the respective measurement of this particular sample are regarded as dimensions of the instance of S10 Material Substantial at the place from which the samples were taken. Therefore, the class S3 Measurement by Sampling inherits the properties of S2 Sample Taking, O3 sampled from: S10 Material Substantial and O4 sampled at: E53 Place, and the properties of S21 Measurement O24 measured: S15 Observable Entity. It needs not instantiate the properties O5 removed: S13 Sample and O24 measured: S15 Observable Entity, if the sample is not documented beyond the context of the activity.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "S21_Measurement",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "S4_Observation",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Observation"
+          },
+          "rdfs:comment": "This class comprises the activity of gaining scientific knowledge about particular states of physical reality through empirical evidence, experiments and measurements. We define observation in the sense of natural sciences, as a kind of human activity: at some place and within some time-span, certain physical things and their behavior and interactions are observed by human sensory impression, and often enhanced by tools and measurement devices. Observed situations or dimensions may pertain to properties confined to a single instance of S15 Observable Entity or pertain to constellations of multiple instances and relations between them, in particular distances between them. The output of the internal processes of measurement devices that do not require additional human interaction are in general regarded as part of the observation and not as additional inference. Primary data from measurement devices are regarded in this model to be results of observation and can be interpreted as propositions believed to be true within the (known) tolerances and degree of reliability of the device. Measurements and witnessing of events are special cases of observations. Observations result in a belief that certain propositions held at a time within the time-span of the observation. In this model, the degree of confidence in the observed properties is regarded to be “true” by default, but could be described differently by adding a property P3 has note to an instance of S4 Observation.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E13_Attribute_Assignment",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S5_Inference_Making",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Inference Making"
+          },
+          "rdfs:comment": "This class comprises the action of making propositions and statements about particular states of affairs in reality or in possible realities or categorical descriptions of reality by using inferences from other statements based on hypotheses and any form of formal or informal logic. It includes evaluations, calculations, and interpretations based on mathematical formulations and propositions.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E13_Attribute_Assignment",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S6_Data_Evaluation",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Data Evaluation"
+          },
+          "rdfs:comment": "This class comprises the action of concluding propositions on a respective reality from observational data by making evaluations based on mathematical inference rules and calculations using established hypotheses, such as the calculation of an earthquake epicenter. S6 Data Evaluation is not defined as S21/E16 Measurement; Secondary derivations of dimensions of an object from data measured by different processes are regarded as S6 Data Evaluation and not determining instances of Measurement in its own right. For instance, the volume of a statue concluded from a 3D model is an instance of S6 Data Evaluation and not of Measurement.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S5_Inference_Making",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S7_Simulation_or_Prediction",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Simulation or Prediction"
+          },
+          "rdfs:comment": "This class comprises activities of executing algorithms or software for simulating the behavior and the properties of a system of interacting components that form part of reality or not by using a mathematical model of the respective interactions. In particular it implies making predictions about the future behaviors of a system of interacting components of reality by starting simulation from an actually observed state, such as weather forecasts. Simulations may also be used to understand the effects of a theory, to compare theoretical predictions with reality, or to show differences with another theory.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S5_Inference_Making",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S8_Categorical_Hypothesis_Building",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Categorical Hypothesis Building"
+          },
+          "rdfs:comment": "This class comprises the action of making categorical hypotheses based on inference rules and theories; By categorical hypotheses we mean assumptions about the kinds of interactions and related kinds of structures of a domain that have the character of “laws” of nature or human behavior, be it necessary or probabilistic. Categorical hypotheses are developed by “induction” from finite numbers of observation and the absence of observations of particular kinds. As such, categorical hypotheses are always subject to falsification by new evidence. Instances of S8 Categorical Hypothesis Building include making and questioning categorical hypotheses.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S5_Inference_Making",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S9_Property_Type",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Property Type"
+          },
+          "rdfs:comment": "This class comprises types of properties. Typically, instances of S9 Property Type would be taken from an ontology or terminological system. In particular, instances of this class can be used to describe in a parametric way what kind of properties the values in scientific data sets are about. By virtue of such descriptions, numeric data can be interpreted as sets of propositions in terms of a formal ontology, such as “concentration of nitrate”, observed in the ground water from a certain borehole.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S10_Material_Substantial",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Material Substantial"
+          },
+          "rdfs:comment": "This class comprises constellations of matter with a relative stability of any form sufficient to associate them with a persistent identity, such as being confined to certain extent, having a relative stability of form or structure, or containing a fixed amount of matter. In particular, it comprises physical things in the narrower sense and fluid bodies. It is an abstraction of physical substance for solid and non-solid things of matter.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "E70_Thing",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "S11_Amount_of_Matter",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Amount of Matter"
+          },
+          "rdfs:comment": "This class comprises fixed amounts of matter specified as some air, some water, some soil, etc., defined by the total and integrity of their material content. In order to be able to identify and recognize in practice one instance of S11 Amount of Matter, some sort of confinement is needed that serves as a constraint for the enclosed matter and the integrity of the content, such as a bottle. In contrast to instances of E18 Physical Thing, no stability of form is required. The content may be put into another bottle without losing its identity. Subclasses may define very different identity conditions for the integrity of the content, such as chemical composition, or the sequence of layers of a bore core. Whereas an instance of E18 Physical Thing may gradually change form and chemical composition while preserving its identity, such as living beings, an instance of S11 Amount of Matter may lose its identifying features by such processes. What matters for the identity of an instance of S1 Amount of Matter is the preservation of a relevant composition from the initial state of definition onwards.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S12_Amount_of_Fluid",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Amount of Fluid"
+          },
+          "rdfs:comment": "This class comprises fixed amounts of fluid (be they gas or liquid) defined by the total of its material content, typically molecules. They frequently acquire identity in laboratory practice by the fact of being kept or handled together within some adequate containers.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "S11_Amount_of_Matter",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "S14_Fluid_Body",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "S13_Sample",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Sample"
+          },
+          "rdfs:comment": "This class comprises instances of S11 Amount of Matter taken from some instance of S10 Material Substantial with the intention to be representative for some material qualities of the instance of S10 Material Substantial or part of it was taken for further analysis. We typically regard a sample as ceasing to exist when the respective representative qualities become corrupted, such as the purity of a water sample or the layering of a bore core.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S11_Amount_of_Matter",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S14_Fluid_Body",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Fluid Body"
+          },
+          "rdfs:comment": "This class comprises a mass of matter in fluid form environmentally constraint in some persistent form allowing for identifying it for the management or research of material phenomena, such as a part of the sea, a river, the atmosphere or the milk in a bottle. Fluids are generally defined by the continuity criterion which is characteristic of their substance: their amorphous matter is continuous and tends to flow. Therefore, contiguous amounts of matter within a fluid body may stay contiguous or at least be locally spatially confined for a sufficiently long time in order to be temporarily identified and traced. This is a much weaker concept of stability of form than the one we would apply to what one would call a physical object. In general, an instance of Fluid Body may gain or lose matter over time through so-called sources or sinks in its surface, in contrast to physical things, which may lose or gain matter by exchange of pieces such as spare parts or corrosion.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S15_Observable_Entity",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Observable Entity"
+          },
+          "rdfs:comment": "This class comprises instances of E5 Event or S10 Material Substantial (i.e. items or phenomena, such as physical things, their behaviour, states and interactions or events), that can be observed by measurement or detection devices or by human sensory impression including when enhanced by tools. In order to be observable, instances of E5 Event must consist of some interaction or action of material substance. In some cases, the spatiotemporal confinement of the event itself, such as a flash, a car stopping etc. marks the limits of a documented observation of an event. In other cases, such as the situation of a car passing by a certain object, the spatiotemporal limits of the event of observing itself, as well as the direction of attention or the orientation of used instruments, may constrain the observed detail of a larger process, e.g., noticing the sight of a car passing by; a light emission, etc. Conceptual objects manifest through their carriers such as books, digital media, or even human memory. Attributes of conceptual objects, such as number of words, can be observed on their carriers. If the respective properties between carriers differ, either they carry different instances of conceptual objects or the difference can be attributed to accidental deficiencies in one of the carriers. In that sense even immaterial objects are observable. By this model we address the fact that frequently, the actually observed carriers of conceptual objects are not explicitly identified in documentation, i.e., they are assumed to have existed but they are unknown as individuals.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S16_State",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "State (rejected)"
+          },
+          "rdfs:comment": "This class comprises the persistence of a particular value range of the properties of a particular thing or things over a time-span.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E2_Temporal_Entity",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S17_Physical_Genesis",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Physical Genesis"
+          },
+          "rdfs:comment": "This class comprises events or processes that result in (generate) physical things, man-made or natural, coming into being in the form by which they are later identified. The creation of a new physical item, at the same time, can be a result of an alteration (modification) – it can become a new thing due to an alteration activity.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "E63_Beginning_of_Existence",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "S18_Alteration",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "S18_Alteration",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Alteration"
+          },
+          "rdfs:comment": "This class comprises natural events or man-made processes that create, alter or change physical things, by affecting permanently their form or consistency without changing their identity. Examples include alterations on depositional features-layers by natural factors or disturbance by roots or insects, organic alterations, petrification, etc.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E5_Event",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S19_Encounter_Event",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Encounter Event"
+          },
+          "rdfs:comment": "This class comprises activities of S4 Observation (substance) where an E39 Actor encounters an instance of E18 Physical Thing of a kind relevant for the mission of the observation or regarded as potentially relevant for some community (identity). This observation produces knowledge about the existence of the respective thing at a particular place in or on surrounding matter. This knowledge may be new to the group of people the actor belongs to. In that case we would talk about a discovery. The observer may recognize or assign an individual identity of the thing encountered or regard only the type as noteworthy in the associated documentation or report. In archaeology there is a particular interest if an object is found “in situ”, i.e. if its embedding in the surrounding matter supports the assumption that the object was not moved since the archaeologically relevant deposition event. The surrounding matter with the relative position of the object in it as well as the absolute position and time of the observation may be recorded in order to enable inferences about the history of the object. In Biology, additional parameters may be recorded like the kind of ecosystem, if the biological individual survives the observation, what detection or catching devices have been used or if the encounter event supported the detection of a new biological kind (“taxon”).",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S20_Rigid_Physical_Feature",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Rigid Physical Feature"
+          },
+          "rdfs:comment": "Any instance of this class is a physical feature with sufficient stability of form in itself and with respect to the physical object bearing it in order to associate a permanent reference space within which its form is invariant and at rest. The maximum volume in space that an instance of S20 Rigid Physical Feature occupies defines uniquely a place for the feature with respect to its surrounding matter. Therefore we model S20 Rigid Physical Feature as a subclass of E26 Physical Feature and of E53 Place. The latter is intended as a phenomenal place as defined in CRMgeo (Doerr and Hiebel 2013). By virtue of this multiple inheritance we can discuss positions relative to the extent of an instance of S20 Rigid Physical Feature without representing each instance of it together with an instance of its associated place. However, since the identity and existence of this place depends uniquely on the identity of the instance of S20 Rigid Physical Feature as matter, this multiple inheritance is unambiguous and effective and furthermore corresponds to the intuitions of natural language. It shortcuts an implicit self-referential path from E26 Physical Feature through P156 occupies, E53 Place, P157 is at rest relative to E26 Physical Feature. In cases of instances of S20 Rigid Physical Feature on or in the surface of earth, the default reference is typically fixed to the closer environment of the tectonic plate or sea floor. In cases of features on mobile objects, the reference space is typically fixed to the geometry of the bearing object. Note that the reference space associated with the instance of S20 Rigid Physical Feature may quite well be deformed over time, as long the continuity of its topology does not become unclear, such as the compression of dinosaur bones in geological layers, or the distortions of the hull of a ship by the waves of the sea. Defined in this way, the reference space can be used as a means to infer from current topological relationships past topological relationships of interest.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "E26_Physical_Feature",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "S21_Measurement",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Measurement"
+          },
+          "rdfs:comment": "This class comprises actions measuring instances of S15 Observable Entity, properties of physical things, or phenomena, states and interactions or events, that can be determined by a systematic procedure. Primary data from measurement devices are regarded to be results of an observation process.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S22_Segment_of_Matter",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Segment of Matter"
+          },
+          "rdfs:comment": "This class comprises physical features with relative stability of form and structure within a declared spatial volume of interest. The spatial extent of an instance of S22 Segment of Matter may be declared or defined by a researcher or observer usually because the arrangement and composition of substance is characteristic for the surrounding matter or can be interpreted as traces of its genesis and subsequent internal and external processes it was exposed to. The defining spatial extent is typically declared on a continuous matter by means of geometric determination without observable boundaries on all sides or any side. It may however be extracted at some point in time along the declared boundaries. An instance of S22 Segment of Matter is regarded to be existing from the time on it completely solidified with a structure that is still preserved in a recognizable way at the time of its spatial definition. Its existence is regarded to end when its respective integrity is partially or completely corrupted. Uncorrupted subsections of an instance of S22 Segment of Matter may continue to exist as segments of matter in their own right beyond the existence of the containing instance, and may have solidified before it. Typical examples are segments of archaeological or geological layers. They are regarded as uncorrupted even if they have undergone conformal deformations, such as compressions or shifts, as long as the effects of these deformations do not destroy the relevant structures of interest. This means that the defining spatial volume may be only geometrically valid for an instant of time for which it was declared, and undergo before and after deformations. In some cases, it may be possible to calculate the initial volume at the time of solidification, for instance for petrified bones compressed in Jurassic layers.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S20_Rigid_Physical_Feature",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S23_Position_Determination",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Position Determination"
+          },
+          "rdfs:comment": "This class comprises activities of determining positions in space and time. The determined position is intended to approximate a part or all of the extent of the presence (instance of E93 Presence) of an instance of E18 Physical Thing or E4 Period of interest, such as the outer walls of an excavated settlement, the position of a ship sailing or the start and end of athlete's run in a competition. Characteristically, a theodolite or GPS device may be positioned on some persistent feature. Determining the position of the device will yield an approximation of the position of the feature of interest. Alternatively, some material item may be observed moving through a determined position at a given time. This class does not inherit properties from class S21 Measurement. A position determination is an evaluation of a combination of measurement of multiple associated distances and/or angles (instances of E54 Dimension) from a particular spot to certain reference points of previously known position in the same reference space. A particular role is played by the Earth's magnetic field and rotational axis as reference for an angle or direction. The determined position is given as an E94 Space Primitive corresponding to a declarative place. Together with the measured time-span covering the time-critical observations it forms a spacetime volume, which should normally overlap with the spatiotemporal extent of the thing or phenomenon of interest.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "S24_Sample_Splitting",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Sample Splitting"
+          },
+          "rdfs:comment": "This class comprises the activity of dividing an instance of S13 Sample into new instances of S13 Sample. This activity describes cases of sub-sampling where the resulting instance maintains the characteristic qualities of the original instance. Any observations of these qualities made on the new instance also apply to the original one. This class should be used to model cases of splitting a homogenous sample into multiple ones.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "A1_Excavation_Process_Unit",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Excavation Process Unit"
+          },
+          "rdfs:comment": "This class comprises activities of excavating in the sense of archaeology which are documented as a coherent set of actions of progressively recording and removing matter from a pre-specified location under specific rules. Typically, an excavation process unit would be terminated if significant discontinuities of substance or finds come to light, or if the activity should be interrupted due to external factors, such as end of a working day. In other cases, the termination would be based on predefined physical specifications, such as the boundaries of a maximal volume of matter intended to be excavated in one unit of excavation. Depending on the methodology, an instance of A1 Excavation Process Unit may intend to remove matter only within the boundaries of a particular stratigraphic unit, or it may follow a pre-declared spatial extent such as a trench. It may only uncover, clean or expose a structure or parts of it. The process of excavation results in the production of a set of recorded (documentation) data that should be sufficient to provide researchers enough information regarding the consistence and spatial distribution of the excavated Segment of Matter and things and features embedded in it. Some parts or all of the removed physical material (S11 Amount of Matter) may be dispersed, whereas others may be kept in custody in the form of finds or samples, while others (such as parts of walls) may be left at the place of their discovery. The data produced by an instance of excavation process unit should pertain to the material state of matter at excavation time only and should well be distinguished from subsequent interpretation about the causes for this state of matter.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "E6_Destruction",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "A2_Stratigraphic_Volume_Unit",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Stratigraphic Volume Unit"
+          },
+          "rdfs:comment": "This class comprises connected portions of terrain or other solid structure on, in, or under the surface of earth or seafloor exhibiting some homogeneity of structure or substance and completely bounded by surfaces or discontinuities in substance or structure with respect to other portions of the terrain or surfaces of objects/finds. An instance of A8 Stratigraphic Unit may contain physical objects. The internal continuity and the boundaries of an instance of A8 Stratigraphic Unit should  be of a kind that can be attributed to a single genesis event or process and have the potential to be observed. One genesis event may have created more than one SU. An instance of A8 Stratigraphic Unit is regarded to exist as long as a part of its matter is still in place with respect to a surrounding reference space such that its spatial features can be associated with effects of the genesis process of interest. Normally at least one of the surfaces (such as the lower one) from its genesis event will remain during its existence. This also implies that a certain degree of coherent (“conformal”) deformation is tolerable within its time-span of existence. Therefore the place an instance of A8 Stratigraphic Unit occupies can be uniquely identified with respect to the surrounding reference space of archaeological interest.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "A3_Stratigraphic_Interface",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Stratigraphic Interface"
+          },
+          "rdfs:comment": "This class comprises coherent parts of the boundary surface, which appears as the result of a stratigraphic genesis event or process. The interface marks the extreme limit of the effect of a genesis or modification event, and indicates in particular where the effect of this event ended. Each event of creation/destruction of a deposition layer implies the creation of new interfaces. Thus there are two main types of interface: those that are surfaces of strata (that can be directly related to the corresponding stratum via the AP12 confines property), and those that are only surfaces, formed by the removal or destruction of existing stratifications.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "A4_Stratigraphic_Genesis",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Stratigraphic Genesis"
+          },
+          "rdfs:comment": "This class comprises activities or processes that have produced homogeneous, distinguishable units of stratification that are in a relatively stable form from the time of their genesis until they are observed. Such processes may be the aggregation of cycles of erosion/destruction, deposit/accumulation, transformation/modification occurring on a particular site throughout a particular period of time. These processes are usually due not only to natural forces (i.e., climate, the impact of flora and fauna, other natural events), but also to human activities, in particular, excavation and construction. An event of stratification genesis typically produces two main forms of stratification units both a deposit and an interface.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "S17_Physical_Genesis",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "A5_Stratigraphic_Modification",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "A5_Stratigraphic_Modification",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Stratigraphic Modification"
+          },
+          "rdfs:comment": "This class comprises activities or processes resulting in the modification of Stratigraphic Units after their genesis through A4 Stratigraphic Genesis Events.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S18_Alteration",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "A6_Group_Declaration_Event",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Group Declaration Event"
+          },
+          "rdfs:comment": "This class comprises activities resulting in the assignment of a common attribute to several Stratigraphic Units. This may be due to an archaeologists interpretation of them being part of one physical thing, like postholes being part of one building.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S5_Inference_Making",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "A7_Embedding",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Embedding"
+          },
+          "rdfs:comment": "This class comprises the states of instances of E18 Physical Things of being partially or completely embedded at a particular position with relative stability in one or more A2 Stratigraphic Volume Units. Normally, an embedding is expected having been stable from the time of generation on of the first A2 Stratigraphic Volume Unit that surrounds it. However, it may also be due to later intrusion. As an empirical fact, the expert may only be able to decide that a particular embedding is not recent, i.e., has been persisting for longer than the activity that encountered it. This class can be used to document the fact of embedding generally with respect to the surrounding matter or more specifically with respect to a more precise position within this matter. It further allows for specifying temporal bounds for which a particular embedding has been existing as specified according to evidence.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S16_State",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "A8_Stratigraphic_Unit",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Stratigraphic Unit"
+          },
+          "rdfs:comment": "This class comprises S20 Physical Features that are either A2 Stratigraphic Volume Units or A3 Stratigraphic Interfaces.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "S20_Rigid_Physical_Feature",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "A9_Archaeological_Excavation",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Archaeological Excavation"
+          },
+          "rdfs:comment": "This class describes the general concept of archaeological escalation intended as a coordinated set of excavation process units (A1) performed on an area considered as part of a broader topographical, rural, urban, or monumental context. An archaeological excavation typically takes place in a predefined geographic area specifically defined after an investigation campaign or based on interpretation of sources, or evidenced by a different activity (such as: preparatory works for urban construction, rescue archaeology and similar) and is carried out according with specific authorisations provided by a competent authority. A specific identifier for each archaeological excavation is usually assigned by the same authority. The set of activities is not limited to matter removals but also comprises siblings activities, happening throughout the whole process, intended for observation and/or consolidation of the excavated strata. The archaeological excavation is usually under the responsibility of a coordinator, officially designated, which is legally and scientifically responsible for all the activities carried out within each of the excavation process units and is also responsible for the documentation of the whole process.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "A10_Excavation_Interface",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Excavation Interface"
+          },
+          "rdfs:comment": "This class comprises instances of S20 Rigid Physical Feature that constitutes a surface producedthrough one or several instances of A1 Excavation Processing Unit. Instances are often documented through drawing and/or measured by technical means such as photography, tachymetry or laser scanning. Using a planar excavation methodology this is typically the surface of a planum or the surface of a profile. Using a stratigraphic excavation methodology, the instance of A10 Excavation Interface would have the intention to approximate an instance of A3 Stratigraphic Interface. The drawing and measurement of profiles is also common practice when a stratigraphic excavation methodology is used.",
+          "rdfs:subClassOf": [
+          {
+            "-rdf:resource": "S20_Rigid_Physical_Feature",
+            "-self-closing": "true"
+          },
+          {
+            "-rdf:resource": "E25_Human_Made_Feature",
+            "-self-closing": "true"
+          }
+          ]
+        },
+        {
+          "-rdf:about": "D1_Digital_Object",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Digital Object"
+          },
+          "rdfs:comment": "This class comprises identifiable immaterial items that can be represented as sets of bit sequences,  such as data sets, e-texts, images, audio or video items, software, etc., and are documented as single units.  Any aggregation of instances of D1 Digital Object into a whole treated as single unit is also regarded as an instance of D1 Digital Object.  This means that for instance, the content of a DVD, an XML file on it, and an element of this file, are regarded as distinct instances of  D1 Digital Object, mutually related by the P106 is composed of (forms part of) property. A D1 Digital Object does not depend on a specific physical carrier, and it can exist on one or more carriers simultaneously.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E73_Information_Object",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D2_Digitization_Process",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Digitization Process"
+          },
+          "rdfs:comment": "This class comprises events that result in the creation of instances of D9 Data Object that  represent the appearance and/or form of an instance of E18 Physical Thing such as paper documents, statues, buildings, paintings, etc.  A particular case is the analogue-to-digital conversion of audiovisual material. This class represents the transition from a material thing to an immaterial representation of it.  The characteristic subsequent processing steps on digital objects are regarded as instances of D3 Formal Derivation.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "D11_Digital_Measurement_Event",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D3_Formal_Derivation",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Formal Derivation"
+          },
+          "rdfs:comment": "This class comprises events that result in the creation of a D1 Digital Object from another one following a deterministic algorithm,  such that the resulting instance of digital object shares representative properties with the original object.  In other words, this class describes the transition from an immaterial object referred to by property L21 used as derivation source (was derivation source for)  to another immaterial object referred to by property L22 created derivative (was derivative created by) preserving the  representation of some things but in a different form. Characteristic examples are colour corrections, contrast changes and resizing of images.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "D10_Software_Execution",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D7_Digital_Machine_Event",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Digital Machine Event"
+          },
+          "rdfs:comment": "This class comprises events that happen on physical digital devices following a human activity that intentionally caused its  immediate or delayed initiation and results in the creation of a new instance of D1 Digital Object on behalf of the human actor.  The input of a D7 Digital Machine Event may be parameter settings and/or data to be processed.  Some D7 Digital Machine Events may form part of a wider E65 Creation event.  In this case, all machine output of the partial events is regarded as creation of the overall activity.",
+          "rdfs:subClassOf": [
+		  {
+            "-rdf:resource": "E11_Modification",
+            "-self-closing": "true"
+          },
+		  {
+            "-rdf:resource": "E65_Creation",
+            "-self-closing": "true"
+          }
+		  ]
+        },
+        {
+          "-rdf:about": "D8_Digital_Device",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Digital Device"
+          },
+          "rdfs:comment": "This class comprises identifiable material items such as computers, scanners, cameras, etc. that  have the capability to process or produce instances of  D1 Digital Object.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E22_Human-Made_Object",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D9_Data_Object",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Data Object"
+          },
+          "rdfs:comment": "This class comprises instances of D1 Digital Object that are the direct result of a digital  measurement or a formal derivative of it, containing quantitative properties of some physical things or other constellations of matter.",
+          "rdfs:subClassOf": [
+		  {
+            "-rdf:resource": "E54_Dimension",
+            "-self-closing": "true"
+          },
+		  {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          }
+		  ]
+        },
+        {
+          "-rdf:about": "D10_Software_Execution",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Software Execution"
+          },
+          "rdfs:comment": "This class comprises events by which a digital device runs a software program or a series of  computing  operations on a digital object  as a single task, which is completely determined by its digital input,  the software and the generic properties of the device.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D11_Digital_Measurement_Event",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Digital Measurement Event"
+          },
+          "rdfs:comment": "This class comprises actions measuring physical properties using a digital device,  that are determined by a systematic procedure and creates an instance of D9 Data Object,  which is stored on an instance of D13 Digital Information Carrier.  In contrast to instances of D10 Software Execution, environmental factors have an intended influence on the outcome of an instance of D11 Digital Measurement Event.  Measurement devices may include running distinct software, such as the RAW to JPEG conversion in digital cameras.  In this case, the event is regarded as instance of both classes, D10 Software Execution and D11 Digital Measurement Event.",
+          "rdfs:subClassOf": [
+		  {
+            "-rdf:resource": "E16_Measurement",
+            "-self-closing": "true"
+          },
+		  {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          }
+		  ]
+        },
+        {
+          "-rdf:about": "D12_Data_Transfer_Event",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Data Transfer Event"
+          },
+          "rdfs:comment": "This class comprises events that transfer a digital object from one digital carrier to another.  Normally, the digital object remains the same. If in general or by observation the transfer implies or has  implied some data corruption, the change of the digital objects may be documented distinguishing input and output  rather than instantiating the property L14 transferred (was transferred by).",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D13_Digital_Information_Carrier",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Digital Information Carrier"
+          },
+          "rdfs:comment": "This class comprises all instances of E84 Information Carrier that are explicitly designed to be  used as persistent digital physical carriers of instances of D1 Digital Object.  A D13 Digital Information Carrier may or may not contain information, e.g., an empty diskette.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E22_Human-Made_Object",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D14_Software",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Software"
+          },
+          "rdfs:comment": "This class comprises software codes,computer programs,procedures, and functions that are used to operate a system of digital objects.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D21_Person_Name",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Person Name"
+          },
+          "rdfs:comment": "This class comprises the proper noun name that identifies a person that acts as an entity.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E41_Appellation",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D23_Room",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Room"
+          },
+          "rdfs:comment": "No description provided",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D29_Annotation_Object",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Annotation Object"
+          },
+          "rdfs:comment": "This class comprises objects that make propositions about other artefacts.  Instances of this class are not the attributes themselves, by which things are annotated,  but represent the connection between the concepts related in a proposition, and the activities of creation, modification and deletion.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E89_Propositional_Object",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D30_Annotation_Event",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Annotation Event"
+          },
+          "rdfs:comment": "This class comprises events that describe the creation of associations (Annotation Objects) between objects  or areas of objects of the Repository, with other objects or regions or persons, places, events. It is the event that creates the Annotation Object.",
+          "rdfs:subClassOf": {
+            "-rdf:resource": "E65_Creation",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "D35_Area",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "Area"
+          },
+          "rdfs:comment": "This class describes a part (of any shape or size) of interest in basically any media object stored in the Object Repository, i.e., a text, an image, a video or a 3D model. It points to content consisting of just a portion or area of a file.  In some contexts, however, the area can also point to content represented by an integral (i.e., proper) file. It is equal to the METS AREA element",
+          "rdfs:subClassOf": [
+		  {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+		  {
+            "-rdf:resource": "E26_Physical_Feature",
+            "-self-closing": "true"
+          }
+		  ]
         }
       ],
       "rdf:Property": [
@@ -15100,6 +15844,3094 @@
           },
           "owl:inverseOf": {
             "-rdf:resource": "P198_holds_or_supports",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O1_diminished",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "diminished"
+          },
+          "rdfs:comment": "This property associates an instance of S1 Matter Removal with the instance of S10 Material Substantial that this activity diminished. Although an instance of S1 Matter Removal activity normally concerns only one item of S10 Material Substantial, it is possible to imagine circumstances under which more than one item might be diminished by a single Matter Removal activity. An instance S1 Matter Removal activity requires to diminish at least one item of S10 Material Substantial. This may be realized by any of the subproperties of O1 diminished. Therefore the instantiation of a particular subproperty of O1 diminished is not necessary.",
+          "rdfs:domain": {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O1i_was_diminished_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O1i_was_diminished_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was diminished by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O1_diminished",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O1_diminished",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "diminished"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O1i_was_diminished_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O1i_was_diminished_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was diminished by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O1_diminished",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O2_removed",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "removed"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S11_Amount_of_Matter",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O2i_was_removed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O2i_was_removed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was removed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S11_Amount_of_Matter",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S1_Matter_Removal",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O2_removed",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O3_sampled_from",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "sampled from"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O3i_was_sample_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O3i_was_sample_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was sample by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O3_sampled_from",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O4_sampled_at",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "sampled at"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O4i_was_sampling_location_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O4i_was_sampling_location_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was sampling location of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O4_sampled_at",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O5_removed",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "removed"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S13_Sample",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O5i_was_removed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O5i_was_removed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "removed"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S13_Sample",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O5_removed",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O6_is_former_or_current_part_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is former or current part of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S12_Amount_of_Fluid",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S14_Fluid_Body",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O6i_has_former_or_current_part",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O6i_has_former_or_current_part",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has former or current part"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S14_Fluid_Body",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S12_Amount_of_Fluid",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O6_is_former_or_current_part_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O7_confines",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "confines"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S20_Rigid_Physical_Feature",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O7i_is_confined_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O7i_is_confined_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is confined by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S20_Rigid_Physical_Feature",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O7_confines",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O8_observed",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "observed"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O8i_was_observed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O8i_was_observed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was observed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O8_observed",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O9_observed_property_type",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "observed property type"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S9_Property_Type",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O9i_property_type_was_observed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O9i_property_type_was_observed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "property type was observed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S9_Property_Type",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O9_observed_property_type",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O10_assigned_dimension",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "assigned dimension"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S6_Data_Evaluation",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E54_Dimension",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O10i_dimension_was_assigned_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O10i_dimension_was_assigned_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "dimension was assigned by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E54_Dimension",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S6_Data_Evaluation",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O10_assigned_dimension",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O11_described",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "described"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S6_Data_Evaluation",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O11i_was_described_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O11i_was_described_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was described by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S6_Data_Evaluation",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O11_described",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O12_has_dimension",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has dimension"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E54_Dimension",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O12i_is_dimension_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O12i_is_dimension_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is dimension of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E54_Dimension",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O12_has_dimension",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O13_triggered",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "triggered"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E5_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E5_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O13i_was_triggered_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O13i_was_triggered_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was triggered by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E5_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E5_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O13_triggered",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O15_occupied",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "occupied"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O15i_was_occupied_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O15i_was_occupied_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was occupied by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O15_occupied",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O16_observed_value",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "observed value"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O16i_value_was_observed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O16i_value_was_observed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "value was observed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S4_Observation",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O16_observed_value",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O17_generated",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "generated"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S17_Physical_Genesis",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O17i_was_generated_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O17i_was_generated_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was generated by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S17_Physical_Genesis",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O17_generated",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O18_altered",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "altered"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S18_Alteration",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O18i_was_altered_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O18i_was_altered_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was altered by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S18_Alteration",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O18_altered",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O19_encountered_object",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "encountered object"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S19_Encounter_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O19i_was_object_encountered_through",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O19i_was_object_encountered_through",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was object encountered through"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S19_Encounter_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O19_encountered_object",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O20_sampled_from_type_of_part",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "sampled from type of part"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E55_Type",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O20i_type_of_part_was_sampled_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O20i_type_of_part_was_sampled_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "type of part was sampled by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E55_Type",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S2_Sample_Taking",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O20_sampled_from_type_of_part",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O21_encountered_at",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "encountered at"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S19_Encounter_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O21i_witnessed_encounter",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O21i_witnessed_encounter",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "witnessed encounter"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S19_Encounter_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O21_encountered_at",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O23_is_defined_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is defined by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S22_Segment_of_Matter",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E92_Spacetime_Volume",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O23i_defines",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O23i_defines",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "defines"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E92_Spacetime_Volume",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S22_Segment_of_Matter",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O23_is_defined_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O24_measured",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "measured"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S21_Measurement",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O24i_was_measured_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O24i_was_measured_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was measured by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S21_Measurement",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O24_measured",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O25_contains",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "contains"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O25i_is_contained_in",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O25i_is_contained_in",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is contained in"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O25_contains",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O27_split",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "split"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S24_Sample_Splitting",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S13_Sample",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O27i_was_source_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O27i_was_source_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was source for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S13_Sample",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S24_Sample_Splitting",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O27_split",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O28_is_conceptually_greater_than",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is conceptually greater than"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E55_Type",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E55_Type",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O28i_is_conceptually_less_than",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O28i_is_conceptually_less_than",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is conceptually less than"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E55_Type",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E55_Type",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O28_is_conceptually_greater_than",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O29_removed_sub-sample",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "removed sub-sample"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S24_Sample_Splitting",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S13_Sample",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O29i_was_sub-sample_removed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O29i_was_sub-sample_removed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was sub-sample removed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S13_Sample",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S24_Sample_Splitting",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O29_removed_sub-sample",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O30_determined_position",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "determined position"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S23_Position_Determination",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O31_has_validity_time-span",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O31_has_validity_time-span",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has validity time-span"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S23_Position_Determination",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E52_Time-Span",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O31i_is_time-span_validity_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O31i_is_time-span_validity_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is time-span validity for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E52_Time-Span",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S23_Position_Determination",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O31_has_validity_time-span",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O32_determined_position_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "determined position of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S23_Position_Determination",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O32i_was_located_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "O32i_was_located_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was located by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S15_Observable_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S23_Position_Determination",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "O32_determined_position_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z1_produced",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "produced"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S11_Amount_of_Matter",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z1i_was_produced_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z1i_was_produced_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was produced by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S11_Amount_of_Matter",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z1_produced",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z2_discarded_into",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "discarded into"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S11_Amount_of_Matter",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z2i_was_discarded_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z2i_was_discarded_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was discarded by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S11_Amount_of_Matter",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z2_discarded_into",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z3_excavated",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "excavated"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z3i_was_excavated_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z3i_was_excavated_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was excavated by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z3_excavated",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z4_produced_surface",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "produced surface"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S20_Physical_Feature",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z4i_was_surface_produced_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z4i_was_surface_produced_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was surface produced by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S20_Physical_Feature",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z4_produced_surface",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z5_removed_part_or_all_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "removed part or all of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z5i_was_partially_or_totally_removed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z5i_was_partially_or_totally_removed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was partially or totally removed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z5_removed_part_or_all_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z6_intended_to_approximate",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "intended to approximate"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A3_Stratigraphic_Interface",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z6i_was_approximated_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z6i_was_approximated_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was approximated by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A3_Stratigraphic_Interface",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z6_intended_to_approximate",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z7_produced",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "produced"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A4_Stratigraphic_Genesis",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A3_Stratigraphic_Interface",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z7i_was_produced_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z7i_was_produced_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was produced by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A3_Stratigraphic_Interface",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A4_Stratigraphic_Genesis",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z7_produced",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z8_disturbed",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "disturbed"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A4_Stratigraphic_Genesis",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A3_Stratigraphic_Interface",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z8i_was_disturbed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z8i_was_disturbed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was disturbed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A3_Stratigraphic_Interface",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A4_Stratigraphic_Genesis",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z8_disturbed",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z9_took_matter_from",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "took matter from"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A4_Stratigraphic_Genesis",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z9i_provided_matter_to",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z9i_provided_matter_to",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "provided matter to"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S10_Material_Substantial",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A4_Stratigraphic_Genesis",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z9_took_matter_from",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z10_destroyed",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "destroyed"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S22_Segment_of_Matter",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z10i_was_destroyed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z10i_was_destroyed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was destroyed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S22_Segment_of_Matter",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A1_Excavation_Process_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z10_destroyed",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z11_has_physical_relation",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has physical relation"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z11i_is_physical_relation_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z11i_is_physical_relation_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is physical relation of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z11_has_physical_relation",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z12_confines",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "confines"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A3_Stratigraphic_Interface",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A2_Stratigraphic_Volume_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z12i_is_confined_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z12i_is_confined_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is confined by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A2_Stratigraphic_Volume_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A3_Stratigraphic_Interface",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z12_confines",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z13_has_stratigraphic_relation",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has stratigraphic relation"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z13i_is_stratigraphic_relation_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z13i_is_stratigraphic_relation_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is stratigraphic relation of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A5_Stratigraphic_Modification",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z13_has_stratigraphic_relation",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z15_is_or_contains_remains_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is or contains remains of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z15i_is_or_has_remains_contained_in",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z15i_is_or_has_remains_contained_in",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is or has remains contained in"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z15_is_or_contains_remains_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z16_assigned_attribute_to",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "assigned attribute to"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A6_Group_Declaration_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z16i_was_attributed_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z16i_was_attributed_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was attributed by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A8_Stratigraphic_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A6_Group_Declaration_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z16_assigned_attribute_to",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z17_is_found_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is found by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A7_Embedding",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "S19_Encounter_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z17i_found",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z17i_found",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "found"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "S19_Encounter_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A7_Embedding",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z17_is_found_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z18_is_embedding_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is embedding of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A7_Embedding",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z18i_is_embedded",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z18i_is_embedded",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is embedded"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A7_Embedding",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z18_is_embedding_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z19_is_embedding_in",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is embedding in"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A7_Embedding",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A2_Stratigraphic_Volume_Unit",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z19i_contains_embedding",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z19i_contains_embedding",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "contains embedding"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A2_Stratigraphic_Volume_Unit",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A7_Embedding",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z19_is_embedding_in",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z20_is_embedding_at",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is embedding at"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "A7_Embedding",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z20i_contains",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "Z20i_contains",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "contains"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E53_Place",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "A7_Embedding",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "Z20_is_embedding_at",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L1_digitized",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "digitized"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D2_Digitization_Process",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L1i_was_digitized_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L1i_was_digitized_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was digitized by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E18_Physical_Thing",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D2_Digitization_Process",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L1_digitized",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L2_used_as_source",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "used as source"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D10_Software_Execution",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L2i_was_source_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L2i_was_source_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was source for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D10_Software_Execution",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L2_used_as_source",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L4_has_preferred_label",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has preferred label"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L10_had_input",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "had input"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L10i_was_input_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L10i_was_input_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was input of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L10_had_input",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L11_had_output",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "had output"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L11i_was_output_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L11i_was_output_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was output of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L11_had_output",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L12_happened_on_device",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "happened on device"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D8_Digital_Device",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L12i_was_device_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L12i_was_device_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was device for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D8_Digital_Device",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L12_happened_on_device",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L13_used_parameters",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "used parameters"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D10_Software_Execution",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L13i_parameters_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L13i_parameters_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "parameters for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D10_Software_Execution",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L13_used_parameters",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L14_transferred",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "transferred"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D12_Data_Transfer_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L14i_was_transferred_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L14i_was_transferred_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was transferred by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D12_Data_Transfer_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L14_transferred",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L15_has_sender",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has sender"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D12_Data_Transfer_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D8_Digital_Device",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L15i_was_sender_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L15i_was_sender_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was sender for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D8_Digital_Device",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D12_Data_Transfer_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L15_has_sender",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L16_has_receiver",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has receiver"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D12_Data_Transfer_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D8_Digital_Device",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L16i_was_receiver_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L16i_was_receiver_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was receiver for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D8_Digital_Device",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D12_Data_Transfer_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L16_has_receiver",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L17_measured_thing_of_type",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "measured thing of type"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D11_Digital_Measurement_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E55_Type",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L17i_was_type_of_thing_measured_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L17i_was_type_of_thing_measured_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was type of thing measured by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E55_Type",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D11_Digital_Measurement_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L17_measured_thing_of_type",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L18_has_modified",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has modified"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D13_Digital_Information_Carrier",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L18i_was_modified_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L18i_was_modified_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was modified by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D13_Digital_Information_Carrier",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L18_has_modified",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L19_stores",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "stores"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D13_Digital_Information_Carrier",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L19i_is_stored_on",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L19i_is_stored_on",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is stored on"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D13_Digital_Information_Carrier",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L19_stores",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L20_has_created",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has created"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D11_Digital_Measurement_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D9_Data_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L20i_was_created_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L20i_was_created_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was created by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D9_Data_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D11_Digital_Measurement_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L20_has_created",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L21_used_as_derivation_source",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "used as derivation source"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D3_Formal_Derivation",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L21i_was_derivation_source_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L21i_was_derivation_source_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was derivation source for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D3_Formal_Derivation",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L21_used_as_derivation_source",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L22_created_derivative",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "created derivative"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D3_Formal_Derivation",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L22i_was_derivative_created_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L22i_was_derivative_created_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was derivative created by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D3_Formal_Derivation",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L22_created_derivative",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L23_used_software_or_firmware",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "used software or firmware"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D14_Software",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L23i_was_software_or_firmware_used_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L23i_was_software_or_firmware_used_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was software or firmware used by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D14_Software",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D7_Digital_Machine_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L23_used_software_or_firmware",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L24_created_logfile",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "created logfile"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D10_Software_Execution",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L24i_was_logfile_created_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L24i_was_logfile_created_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was logfile created by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D10_Software_Execution",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L24_created_logfile",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L29_has_responsible_organization",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has responsible organization"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E74_Group",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L29i_is_responsible_organization_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L29i_is_responsible_organization_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is responsible organization for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E74_Group",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L29_has_responsible_organization",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L30_has_operator",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has operator"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E21_Person",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L30i_is_operator_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L30i_is_operator_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is operator of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E21_Person",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L30_has_operator",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L31_has_starting_date-time",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has starting date-time"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E5_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L32_has_ending_date-time",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has ending date-time"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E5_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L33_has_maker",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has maker"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E72_Legal_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E39_Actor",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L33i_is_maker_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L33i_is_maker_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is maker of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E39_Actor",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E72_Legal_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L33_has_maker",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L34_has_contractor",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has contractor"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E74_Group",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L34i_is_contractor_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L34i_is_contractor_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is contractor for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E74_Group",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L34_has_contractor",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L35_has_commissioner",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has commissioner"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E74_Group",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L35i_is_commissioner_for",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L35i_is_commissioner_for",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is commissioner for"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E74_Group",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E7_Activity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L35_has_commissioner",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L43_annotates",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "annotates"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D29_Annotation_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L43i_is_annotated_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L43i_is_annotated_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is annotated by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D29_Annotation_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L43_annotates",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L47_has_comment",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has comment"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L48_created_annotation",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "created annotation"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D30_Annotation_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D29_Annotation_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L48i_was_annotation_created_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L48i_was_annotation_created_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was annotation created by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D29_Annotation_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D30_Annotation_Event",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L48_created_annotation",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L49_is_primary_area_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is primary area of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D35_Area",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L49i_has_primary_area",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L49i_has_primary_area",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has primary area"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D35_Area",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L49_is_primary_area_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L50_is_propagated_area_of",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is propagated area of"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D35_Area",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L50i_has_propagated_area",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L50i_has_propagated_area",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has propagated area"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D1_Digital_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D35_Area",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L50_is_propagated_area_of",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L51_has_first_name",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has first name"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D21_Person_Name",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L52_has_last_name",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has last name"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D21_Person_Name",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L53_is_not_uniquely_identified_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is not uniquely identified by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L54_is_same-as",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is same-as"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L54i_is_same-as",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L54i_is_same-as",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is same-as"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L54_is_same-as",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L55_has_inventory_no",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has inventory no"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L56_has_pixel_width",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has pixel width"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D9_Data_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L57_has_pixel_height",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has pixel height"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D9_Data_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L59_has_serial_number",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "has serial number"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E22_Human-Made_Object",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L60_documents",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "documents"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "D2_Digitization_Process",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L60i_is_documented_by",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L60i_is_documented_by",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "is documented by"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E1_CRM_Entity",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "D2_Digitization_Process",
+            "-self-closing": "true"
+          },
+          "owl:inverseOf": {
+            "-rdf:resource": "L60_documents",
+            "-self-closing": "true"
+          }
+        },
+        {
+          "-rdf:about": "L61_was_ongoing_at",
+          "rdfs:label": {
+            "-xml:lang": "en",
+            "#text": "was ongoing at"
+          },
+          "rdfs:domain": {
+            "-rdf:resource": "E5_Event",
+            "-self-closing": "true"
+          },
+          "rdfs:range": {
+            "-rdf:resource": "http://www.w3.org/2001/XMLSchema#dateTime",
             "-self-closing": "true"
           }
         }

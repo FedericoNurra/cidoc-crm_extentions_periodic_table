@@ -36,8 +36,8 @@ body {
 }
 
 .classcell:not(.experimental){
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
 }
 
 .nonCidocCode {
@@ -300,12 +300,15 @@ body {
 }
 
 .classsubclasses {
-    font-size: 4pt;
-    position: absolute;
-    text-align: center;
-    bottom: 1px;
-    width: 100%;
-    overflow-x: auto;
+  font-size: 4pt;
+  position: absolute;
+  text-align: center;
+  bottom: 1px;
+  width: 100%;
+  overflow-x: hidden;
+  word-break: break-all;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .cidoccell {
@@ -391,6 +394,7 @@ body {
     --Appellations: #68810C;
     --Places: #206D33;
     --Types: #F88C34;
+    --Observables: #00008B;
     --None: #d8d8d8;
   }
   
@@ -416,7 +420,9 @@ body {
 .cidoccell.Types,#descCodeColor.Types,.propertydomain.Types,.propertyrange.Types {
     background-color: var(--Types);
 }
-
+.cidoccell.Observables,#descCodeColor.Observables,.propertydomain.Observables,.propertyrange.Observables {
+    background-color: var(--Observables);
+}
 
 
 /* DOMAIN AND RANGES IN PROPERTIES */
@@ -448,6 +454,10 @@ body {
 .propertydomain.Types {
     background-color: var(--Types);
     background: linear-gradient(270deg, rgba(128, 128, 128, 0) 0%, var(--Types) 90%, var(--Types) 100%);
+}
+.propertydomain.Observables {
+    background-color: var(--Observables);
+    background: linear-gradient(270deg, rgba(128, 128, 128, 0) 0%, var(--Observables) 90%, var(--Observables) 100%);
 }
 .propertydomain.none {
     background-color: var(--None);
@@ -484,6 +494,10 @@ body {
 .propertyrange.Types {
     background-color: var(--Types);
     background: linear-gradient(90deg, rgba(128, 128, 128, 0) 0%, var(--Types) 90%, var(--Types) 100%);
+}
+.propertyrange.Observables {
+    background-color: var(--Observables);
+    background: linear-gradient(90deg, rgba(128, 128, 128, 0) 0%, var(--Observables) 90%, var(--Observables) 100%);
 }
 .propertyrange.none {
     background-color: var(--None);
@@ -536,6 +550,9 @@ body {
 .cidocline.classline.Types .cidoclineCode {
     background-color: var(--Types)
 }
+.cidocline.classline.Observables .cidoclineCode {
+    background-color: var(--Observables)
+}
 .cidocline.classline.none .cidoclineCode {
     background-color: var(--None)
 }
@@ -560,6 +577,9 @@ body {
 }
 .cidocline.classline.Types {
     border: 1px solid var(--Types)
+}
+.cidocline.classline.Observables {
+    border: 1px solid var(--Observables)
 }
 .cidocline.classline.none {
     border: 1px solid var(--None)
@@ -1080,4 +1100,11 @@ html {
 #cidocVersionSelect {
     cursor: pointer;
     font-family: "Sorts Mill Goudy";
+}
+#mainRow {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  border-bottom: solid 1px black;
 }

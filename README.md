@@ -1,7 +1,7 @@
-# The CIDOC-crm Periodic Table (alpha)
-An interactive, dinamically generated interface for the documentation of the CIDOC Conceptual Reference Model.
+# The enriched CIDOC-crm Periodic Table (modified at the INHA)
+An interactive, dinamically generated interface for the documentation of the CIDOC Conceptual Reference Model and its extentions.
 
-You can try it [here](https://remogrillo.github.io/cidoc-crm_periodic_table/).
+You can try it [here](https://digital.inha.fr/cidoc/).
 
 ### Scope
 
@@ -13,20 +13,3 @@ You can find complete information in the official Cidoc-CRM documentation. Howev
 
 The interface content is dinamically generated from the Cidoc-CRM implementation in RDF.
 There is no server-side computation, all the data processing and reasoning is done client side, entirely in javascript.
-
-### Functions
-
-* One page visualization of the entire Conceptual Reference Model
-* Search/Filter by name or code 
-* Inspect single Classes and Properties to see details
-* Highlight immediate relations on the table 
-* D3.js infographic visualization of hierarchies
-* Show all relations, recursively, for every class and property
-* Clipboard (a copy/paste function, pretty useful during modeling)
-* Switch between Properties and Inverse Properties
-
-### Future releases 
-
-* Higher level grouping of classes (in a real periodic table fashion)
-* Permalinks for Classes and Properties
-* A reasoner-powered sandbox, useful to test consistency of triples

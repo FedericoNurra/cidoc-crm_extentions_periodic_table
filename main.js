@@ -11,7 +11,7 @@ var experimentObject = {
 var waitForSelection = false;
 
 
-const palette = ["48aadb","003d5b","bf531d","cba415","657153"];
+const palette = ["48aadb","003d5b","bf531d","cba415","657153", "00008B"];
 
 //Higher-level-colors
 const cidoc_colorcodes = {
@@ -45,6 +45,10 @@ const cidoc_colorcodes = {
     "E55":{
         color: "#657153",
         label: "Types"
+    },
+    "S15":{
+        color: "#00008B",
+        label: "Observables"
     }
 }
 
@@ -186,7 +190,7 @@ function mainStart(cidocVersion="7.1"){
     $('#propertiesContainer').html("");
 
     $.getJSON("cidoc" + cidocVersion + ".json", function(data){
-        generateJson(data);
+		generateJson(data);
         addPropertiesAndReferencesToJson();
         addColorcodesToJson();
 
@@ -282,23 +286,23 @@ function toggleViewFromCode(code){
 }
 
 function isCidocName(string){
-    let regex = /^[E,P,L,D]\d{1,3}.*\_.*/gm
+    let regex = /^[E,A,P,L,D,Z,S,O]\d{1,3}.*\_.*/gm
     return(regex.test(string));
 }
 
 //TODO: genera dinamicamente prime lettere
 function isCidocCode(code){
-    let regex = /^[E,P,L,D]\d{1,3}/gm
+    let regex = /^[E,A,P,L,D,Z,S,O]\d{1,3}/gm
     return(regex.test(code))
 }
 
 function isCidocClass(code){
     //TODO: dinamically find letters and kind from json
-    return (code.startsWith("E") || code.startsWith("D"));
+    return (code.startsWith("E") || code.startsWith("D") || code.startsWith("A") || code.startsWith("S"));
 }
 
 function isCidocProperty(code){
-    return (code.startsWith("P") || code.startsWith("L"));
+    return (code.startsWith("P") || code.startsWith("L") || code.startsWith("Z") || code.startsWith("O"));
 }
 
 function getCode(cidocName){
@@ -506,7 +510,7 @@ function experimentDescriptionUpdate(){
 
         /* TRIPLE CODE */
 
-        let experiment_code_string = "crm:" + cidoc[experimentObject.domain].about + " crm:" + cidoc[experimentObject.property].about + " crm:" + cidoc[experimentObject.range].about + "."
+        let experiment_code_string = iriUpdate(cidoc[experimentObject.domain].about) + cidoc[experimentObject.domain].about + iriUpdate(cidoc[experimentObject.property].about) + cidoc[experimentObject.property].about + iriUpdate(cidoc[experimentObject.range].about) + cidoc[experimentObject.range].about + "."
 
         $('#experiment_code').html(experiment_code_string);
         $('#experiment_code_container').fadeIn(1000);
@@ -514,6 +518,20 @@ function experimentDescriptionUpdate(){
         $('#experiment_description').fadeOut(400);
         $('#experiment_code_container').fadeOut(400);
     }
+	function iriUpdate(about){
+		let initial = about.substring(0,1);
+		if (initial == "E" || initial == "P") {
+			return " crm:"
+		} else if (initial == "A" || initial == "Z") {
+			return " crm-archaeo:"
+		} else if (initial == "S" || initial == "O") {
+			return " crm-sci:"
+		} else if (initial == "D" || initial == "L") {
+			return " crm-dig:"
+		} else {
+			return " crm:"
+		}
+	}
 }
 
 function cellClick(elem, simulated=false){
@@ -1245,6 +1263,12 @@ function takeDataFromEntry(entry){
 
     if("rdfs:range" in entry){
         cidoc[currentcode]["range"] = entry["rdfs:range"]["-rdf:resource"];
+    }
+	
+	/* Test */
+    cidoc[currentcode]["test"] = "";
+    if("-rdf:test" in entry) {
+        cidoc[currentcode]["test"] = entry["-rdf:test"]["#text"];
     }
 }
 
